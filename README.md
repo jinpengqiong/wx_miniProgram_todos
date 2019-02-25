@@ -1,4 +1,5 @@
 my first commit!
+<<<<<<< HEAD
 
 my second commit!
 
