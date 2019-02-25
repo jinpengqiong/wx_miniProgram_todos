@@ -1,3 +1,5 @@
-my first commit!  /n
-my second commit!!! /n
-my third commit!! /n
+my first commit!
+
+my second commit!!!
+
+my third commit!!
