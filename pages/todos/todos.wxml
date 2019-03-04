@@ -1,0 +1,34 @@
+<view class='container'>
+  <view class="search">
+    <image src="../../assets/plus.png" class="plus"></image>
+    <input type="text" placeholder='Anything here...' bindinput='inputHandler' value="{{ inputData }}" auto-focus bindconfirm="addTodoHandle"></input>
+  </view>
+  <block wx:if="{{ toTods.length }}">
+    <view class="todos" >
+      <view class="item{{ item.toggled? ' completed' : '' }}" 
+            wx:for="{{ toTods }}"
+            wx:key="{{ index }}"
+            bindtap='toggleIcon' 
+            data-index="{{ index }}">
+        <icon 
+        type="{{ item.toggled? 'success' : 'circle' }}" 
+        size='20' 
+        >
+        </icon>
+        <text >{{ item.content }}</text>
+        <icon type="clear" size='20' catchtap='clearOne' data-curIndex="{{ index }}"></icon>
+      </view>
+    </view>
+    <view class="footer">
+      <text bindtap='selectAll'>Toggle all</text>
+      <text wx:if="{{ leftCount != 0 }}">{{ leftCount }} {{ leftCount === 1 ? 'item' : 'items' }} left</text>
+      <text bindtap='clearAll' wx:if="{{ toTods.length > leftCount }}">Clear completed</text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="empty">
+      <text class="title">Congratulations!</text>
+      <text class="content">There's no more work left.</text>
+    </view>
+  </block>
+</view>
